@@ -1,2 +1,2 @@
-# schweakk
+# schweak
 Ticketmaster + Spotify = 🎵
