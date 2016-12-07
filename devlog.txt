@@ -1,2 +1,3 @@
 Ayman - 03:29:54 PM 12-06-2016 - added foundation and barebones html
 Ayman - 12:15:25 AM 12-07-2016 - added homepage template and some css; variables for event.html: {{name}} variables for home: {{message}} {{error}} variables for results: {{search}}
+Ayman - 12:17:24 AM 12-07-2016 - added the error variable to home
