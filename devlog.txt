@@ -6,3 +6,5 @@ aymanA -- 2016-12-07 12:17:24 AM  - added the error variable to home
 aymanA -- 2016-12-07 11:58:21 AM  - Added the pre-commit devlog script
 aymanA - 2016-12-07 12:10:59 PM - fixed pre-commit
 eliasM - 2016-12-07 12:35:44 PM - added UML for jambase. Removed ticketmaster.py. Added API key as comment in jambase.py
+angelaY - 2016-12-07 12:33:01 PM - updated app.py with barebones of other functions 
+eliasM - 2016-12-07 12:36:46 PM - devlog merge
