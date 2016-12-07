@@ -1,4 +1,6 @@
-Ayman - 03:29:54 PM 12-06-2016 - added foundation and barebones html
-Ayman - 12:15:25 AM 12-07-2016 - added homepage template and some css; variables for event.html: {{name}} variables for home: {{message}} {{error}} variables for results: {{search}}
-Ayman - 12:17:24 AM 12-07-2016 - added the error variable to home
-Ayman - 11:58:21 AM 12-07-2016 - Added the pre-commit devlog script
+eliasM -- 2016-12-06 12:33 PM - replaced spotify with last.fm, made UMl for last.fm
+angelaY -- 2016-12-06 12:33 PM - updated app.py with start of search
+aymanA -- 2016-12-06 03:29:54 PM - added foundation and barebones html
+aymanA -- 2016-12-07 12:15:25 AM  - added homepage template and some css; variables for event.html: {{name}} variables for home: {{message}} {{error}} variables for results: {{search}}
+aymanA -- 2016-12-07 12:17:24 AM  - added the error variable to home
+aymanA -- 2016-12-07 11:58:21 AM  - Added the pre-commit devlog script
