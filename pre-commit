@@ -17,22 +17,22 @@ echo "What do you wanna add to the devlog? (On one line)"
 
 read devlog
 
-now="$(date +"%r %m-%d-%Y")"
+now="$(date +"%Y-%m-%d %r")"
 
 if [ "$name" -eq "1" ]; then
-    echo "Ayman - $now - $devlog" >> devlog.txt;
+    echo "aymanA - $now - $devlog" >> devlog.txt;
     git add devlog.txt;
     exit 0;
 fi
 
 if [ "$name" -eq "2" ]; then
-    echo "Angela - $now - $devlog" >> devlog.txt;
+    echo "angelaY - $now - $devlog" >> devlog.txt;
     git add devlog.txt;
     exit 0;
 fi
 
 if [ "$name" -eq "3" ]; then
-    echo "Elias - $now - $devlog" >> devlog.txt;
+    echo "eliasM - $now - $devlog" >> devlog.txt;
     git add devlog.txt;
     exit 0;
 fi
