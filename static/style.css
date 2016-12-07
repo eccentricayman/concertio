@@ -1,0 +1,79 @@
+body {
+    background-color: rgb(40, 40, 40);
+    padding: 50px;
+}
+
+.concertio-fa-background {
+    color: #FFF;
+}
+
+.concertio-logo {
+    padding: 5% 5% 5% 5%;
+    text-align: center;
+    margin: 0 auto;
+    display: table;
+}
+
+.concertio-logo > span {
+    color: rgb(47, 213, 102);
+    background-color: rgb(47, 213, 102);
+    border-radius: 500px;
+}
+
+.concertio-logo > h1{
+    display: table-cell;
+    padding-left: 5px;
+    vertical-align: middle;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.concertio-button {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px !important;
+    font-weight: light !important;
+    padding: 1.5% 7.5% 1.5% 7.5%;
+    margin: 0 auto;
+}
+
+.concertio-search-bar {
+    font-family: FontAwesome, "Montserrat", sans-serif;
+    font-size: 20px;
+    line-height: 1.1;
+    text-align: center;
+    height: auto;
+    padding: 4%;
+}
+
+.concertio-message {
+    color: #FFF;
+    font-size: 18px;
+    margin: 0 auto;
+    padding-bottom: 1%;
+    color: rgb(160, 160, 160);
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    text-transform: capitalize;
+}
+
+.concertio-error {
+    color: #BD3200;
+}
+
+/* Here be where I overwrite default foundation things. */
+.button.success {
+    background-color: rgb(55, 187, 93);
+}
+
+.button.success:hover {
+    transition: 0.3s background-color;
+    background-color: rgb(47, 213, 102);
+}
+
+/* couldn't find this in foundation even though it's in the docs? */
+.round {
+    border-radius: 1000px;
+}
+

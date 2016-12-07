@@ -5,18 +5,58 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <title>Concertify</title>
+    <title>Concert.io</title>
     
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css">
-    <!-- My Style -->
-    <link rel="stylesheet" href="static/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
     <!-- Foundation -->
-    <link rel="stylesheet" href="static/foundation/css/foundation.css">
+    <link rel="stylesheet" href="/static/foundation/css/foundation.css">
+    <!-- My Style -->
+    <link rel="stylesheet" href="/static/style.css" type="text/css" media="screen">
   </head>
   <body>
+    <div class="row">
+      <div class="medium-12 large-centered columns">
+        <div class="concertio-logo">
+          <span class="fa-stack fa-3x">
+            <i class="fa fa-circle fa-stack-1x fa-2x"></i>
+            <i class="fa fa-copyright fa-stack-1x fa-2x concertio-fa-background"></i>
+          </span>
+          <h1 class="concertio-logo-header">oncert.io</h1>
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+    <!-- Holy mother of nested columns has nobody found a better way to do this -->
+    <h2 class="concertio-message concertio-error">{{ message }}</h2>
+        
+    <div class="row">
+      <div class="medium-12 large-centered columns">
+        
+        <form action="/search" method="POST">
+          
+          <div class="row">
+            <div class="medium-6 large-centered columns">
+              <input type="text" class="round large concertio-search-bar" name="search" placeholder="&#xf002; Enter an artist or a location!"/>
+            </div>
+          </div>
+
+          <br><br><br><br><br>
+          
+          <div class="row">
+            <div class="medium-12 large-centered columns">
+              <div style="text-align: center">
+                <input type="submit" class="button round large success concertio-button" name="submit" value="Search" />
+              </div>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+    
     <!-- Foundation Scripts -->
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/what-input.min.js"></script>
