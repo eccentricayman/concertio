@@ -2,9 +2,6 @@
 import urllib2
 import xml.etree.ElementTree as ET
 
-#def events(search):
-    
-
 def eventsHelp(z, artist):
     u = "http://api.jambase.com/events?api_key=626c4n8t8x4dy4qxs5jfuy4k"
     if z != null:
@@ -17,8 +14,6 @@ def eventsHelp(z, artist):
     u = urllib2.urlopen(u)
     u = u.read()
     #need to learn how to use xml
-
-
         
 
 def artistId(artist):
@@ -28,11 +23,18 @@ def artistId(artist):
     #need to learn how to use xml
     return "8317"
 
-#def link(event):
+def events(search):
+    return ""
 
-#def loc(event):
+def link(event):
+    return ""
 
-#def artists(event):
-    
-#def images(event):
+def loc(event):
+    return ""
+
+def artists(event):
+    return ""
+
+def images(event):
+    return ""
 
