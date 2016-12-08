@@ -8,3 +8,4 @@ aymanA - 2016-12-07 12:10:59 PM - fixed pre-commit
 eliasM - 2016-12-07 12:35:44 PM - added UML for jambase. Removed ticketmaster.py. Added API key as comment in jambase.py
 angelaY - 2016-12-07 12:33:01 PM - updated app.py with barebones of other functions 
 eliasM - 2016-12-07 12:36:46 PM - devlog merge
+eliasM - 2016-12-07 10:01:20 PM - Started working on jambase. Still need to learn how to parse xml as jambase only uses xml
