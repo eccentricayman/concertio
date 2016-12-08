@@ -9,3 +9,4 @@ eliasM - 2016-12-07 12:35:44 PM - added UML for jambase. Removed ticketmaster.py
 angelaY - 2016-12-07 12:33:01 PM - updated app.py with barebones of other functions 
 eliasM - 2016-12-07 12:36:46 PM - devlog merge
 aymanA - 2016-12-08 12:57:00 AM - deleted emacs backups
+angelaY - 2016-12-08 12:31:02 PM - Added more functionality to app.py to recieve and send info from either end
