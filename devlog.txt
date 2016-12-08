@@ -13,3 +13,4 @@ aymanA - 2016-12-08 12:57:00 AM - deleted emacs backups
 angelaY - 2016-12-08 12:31:02 PM - Added more functionality to app.py to recieve and send info from either end
 
 eliasM - 2016-12-08  5:51:24 PM - fixed merge conflicts
+eliasM - 2016-12-08  6:01:40 PM - replaced lastfm.py with musixmatch.py
