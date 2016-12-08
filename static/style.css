@@ -62,6 +62,13 @@ body {
     color: #BD3200;
 }
 
+.concertio-footer {
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 /* Here be where I overwrite default foundation things. */
 .button.success {
     background-color: rgb(55, 187, 93);
