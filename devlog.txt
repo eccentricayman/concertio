@@ -16,7 +16,7 @@ eliasM - 2016-12-08  6:01:40 PM - replaced lastfm.py with musixmatch.py
 eliasM - 2016-12-08  6:27:37 PM - added implementation for keys.csv (an untracked file, which ahs the keys in it) removed all trackable places where keys were written
 aymanA - 2016-12-08 07:04:31 PM - added api keys to gitignore
 eliasM - 2016-12-08  8:00:56 PM - deleted blank line in keys.csv, adjusted code to compensate
-eliasM - 2016-12-08  8:01:19 PM - 
 eliasM - 2016-12-08  9:48:31 PM - implemented top track searching by artist in musixmatch.py
 aymanA - 2016-12-09 01:26:54 AM - Style.css formatting, updating app.py with dynamicsearch and added utils/dynamicsearch.py (in progress))
 aymanA - 2016-12-09 12:12:45 PM - fixed devlog
+aymanA - 2016-12-09 12:13:37 PM - more devlog fixing
