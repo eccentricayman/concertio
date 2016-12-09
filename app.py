@@ -12,11 +12,8 @@ def search():
     userInput = request.form["search"]
     if (userInput == ""):
         return render_template("home.html", message="Please search for something!")
-    #dynamicsearch will run results from the search function; i'll call jambase and musixmatch
-    #from there, and it'll return 0 if it can't tell what place it is
-    whichSearch = dynamicsearch.search(userInput)
-    if (whichSearch == False):
-    	return render_template("home.html", message="Please be more specific.", error = True)
+    #dynamicsearch is a dictionary of both locations and artist with that name
+    return dynamicsearch.search(userInput)
     ## events from jambase should return a dictionary in format of {event0ID:[link, artist, etc], event1ID:[same]}
 
 @app.route("/results")
