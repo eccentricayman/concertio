@@ -20,7 +20,7 @@ body {
     border-radius: 500px;
 }
 
-.concertio-logo > h1{
+.concertio-logo > h1 {
     display: table-cell;
     padding-left: 5px;
     vertical-align: middle;
