@@ -2,7 +2,6 @@
 def key():
     #gets key
     k = open("keys.csv", "r").readline()
-    k = k[0:-1]
     k = k.split(",")[0]
     return k
 

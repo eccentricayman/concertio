@@ -4,7 +4,6 @@ import xml.etree.ElementTree as ET
 def key():
     #gets key
     k = open("keys.csv", "r").readline()
-    k = k[0:-1]
     k = k.split(",")[1]
     return k
 
@@ -44,3 +43,5 @@ def artists(event):
 def images(event):
     return ""
 
+
+print key()
