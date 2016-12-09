@@ -90,3 +90,6 @@ ENV/
 
 #emax
 *~
+
+#api keys
+keys.csv
