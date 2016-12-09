@@ -19,3 +19,4 @@ eliasM - 2016-12-08  6:27:37 PM - added implementation for keys.csv (an untrack
 aymanA - 2016-12-08 07:04:31 PM - added api keys to gitignore
 eliasM - 2016-12-08  8:00:56 PM - deleted blank line in keys.csv, adjusted code to compensate
 eliasM - 2016-12-08  8:01:19 PM - 
+eliasM - 2016-12-08  9:48:31 PM - implemented top track searching by artist in musixmatch.py
