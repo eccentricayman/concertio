@@ -21,3 +21,4 @@ aymanA - 2016-12-09 01:26:54 AM - Style.css formatting, updating app.py with dyn
 aymanA - 2016-12-09 12:12:45 PM - fixed devlog
 aymanA - 2016-12-09 12:13:37 PM - more devlog fixing
 aymanA - 2016-12-10 02:02:25 PM - done with dynamicsearch but need to test; read line 18 in app.py and line 8 in utils/dynamicsearch.py
+aymanA - 2016-12-10 02:04:51 PM - two more comments, eventlist or artistlist can be null, checking if location exists through yahoo GET api, need something to check if artists exist

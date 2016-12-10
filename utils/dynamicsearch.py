@@ -9,6 +9,7 @@ def search(input):
 			events = eventsHelp(z.zip, null)
 	except ValueError:
 		zcdb = ZipCodeDatabase()
+		#parse yahoo geo.places api GET api here, to see if it's actually a location
 		z = zcdb.find_zip(city=input)
 		for code in z:
 			#use jambase to get all the events, code.zip is the zipcode as a string
@@ -17,4 +18,5 @@ def search(input):
 	#same format as eventlist in line 8 of this file, but we're looking for all the events of this artist
 	artists = eventsHelp(null, input)
 	#returning the final rendertemplate
+	#either eventlist or artistlist can be null
 	return render_template("results.html", eventList = events, artistList = artists)
