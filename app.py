@@ -15,6 +15,7 @@ def search():
     #dynamicsearch is a dictionary of both locations and artist with that name
     return dynamicsearch.search(userInput)
     ## events from jambase should return a dictionary in format of {event0ID:[link, artist, etc], event1ID:[same]}
+    # can we make it return the format in line 8 of dynamicsearch?
 
 @app.route("/results")
 def results(resultDict):
