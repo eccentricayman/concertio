@@ -9,10 +9,10 @@ def key():
 
 def eventsHelp(z, artist):
     u = "http://api.jambase.com/events?api_key=" + key()
-    if z != null:
+    if z != None:
         u += "&zipCode=" + z + "&radius=0" #radius zero so it is only in that zipCode
         
-    if artist != null:
+    if artist != None:
         artist = artistId(artist)
         u += "&artistId=" + artist
 
