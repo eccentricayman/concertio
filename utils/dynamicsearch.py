@@ -3,6 +3,8 @@ import jambase, musixmatch
 import urllib2, json
 
 def search(input):
+	#initializing for the for loop @ line 25
+	events = []
 	try:
 		z = int(input)
 		if (len(input) == 5):
@@ -13,7 +15,7 @@ def search(input):
 		zcdb = ZipCodeDatabase()
 		#parse yahoo geo.places api GET api here, to see if it's actually a location
 		parsedInput = input.replace(" ", "+")
-		rawData = urllib.urlopen("http://query.yahooapis.com/v1/public/yql?q=select%20%2a%20from%20geo.places%20where%20text='" + parsedInput + "'&format=json")
+		rawData = urllib2.urlopen("http://query.yahooapis.com/v1/public/yql?q=select%20%2a%20from%20geo.places%20where%20text='" + parsedInput + "'&format=json").read()
 		data = json.loads(rawData)
 		if (data['query']['results'] == None):
 			return render_template("home.html", message="Location not found. Please try a zip code or a city.")

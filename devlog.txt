@@ -25,3 +25,4 @@ aymanA - 2016-12-10 02:04:51 PM - two more comments, eventlist or artistlist can
 aymanA - 2016-12-10 09:45:15 PM - Added Bing Image API to find artist images in utils/bing.py, changed null -> None, bugfixed dynamicsearch
 aymanA - 2016-12-10 09:55:31 PM - made images only return square images
 aymanA - 2016-12-10 11:08:08 PM - Started using Yahoo Places API for search, removed print statements in jambase and musixmatch
+aymanA - 2016-12-10 11:29:45 PM - Fixed errors in dynamicsearch
