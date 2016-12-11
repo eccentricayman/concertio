@@ -13,10 +13,11 @@ def eventsHelp(z, artist):
         
     if artist != None:
         artist = artistId(artist)
-        u += "&artistId=" + artist
+        u += "&artistId=" + str(artist)
 
+    print u
     u = urllib2.urlopen(u)
-    urlData = url.read()
+    urlData = u.read()
     jsonData = json.loads(urlData)
     #examplu (first from http://pastebin.com/bWRSCvqm)
     return [ ["The Great Northern", 2873583, "119 Utah Street, San Francisco, California"], ["Halcyon", 160644, "314 11th Street, San Francisco, California"] ]
@@ -54,4 +55,3 @@ def artists(event):
 
 def images(event):
     return ""
-
