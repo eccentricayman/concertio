@@ -43,5 +43,3 @@ def artists(event):
 def images(event):
     return ""
 
-
-print key()

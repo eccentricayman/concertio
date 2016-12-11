@@ -24,3 +24,4 @@ aymanA - 2016-12-10 02:02:25 PM - done with dynamicsearch but need to test; read
 aymanA - 2016-12-10 02:04:51 PM - two more comments, eventlist or artistlist can be null, checking if location exists through yahoo GET api, need something to check if artists exist
 aymanA - 2016-12-10 09:45:15 PM - Added Bing Image API to find artist images in utils/bing.py, changed null -> None, bugfixed dynamicsearch
 aymanA - 2016-12-10 09:55:31 PM - made images only return square images
+aymanA - 2016-12-10 11:08:08 PM - Started using Yahoo Places API for search, removed print statements in jambase and musixmatch

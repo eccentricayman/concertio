@@ -1,7 +1,6 @@
 from pyzipcode import ZipCodeDatabase
-import jambase
-import musixmatch
-from pyechonest import config, artist
+import jambase, musixmatch
+import urllib2, json
 
 def search(input):
 	try:
@@ -13,7 +12,14 @@ def search(input):
 	except ValueError:
 		zcdb = ZipCodeDatabase()
 		#parse yahoo geo.places api GET api here, to see if it's actually a location
-		z = zcdb.find_zip(city=input)
+		parsedInput = input.replace(" ", "+")
+		rawData = urllib.urlopen("http://query.yahooapis.com/v1/public/yql?q=select%20%2a%20from%20geo.places%20where%20text='" + parsedInput + "'&format=json")
+		data = json.loads(rawData)
+		if (data['query']['results'] == None):
+			return render_template("home.html", message="Location not found. Please try a zip code or a city.")
+		#yahoo location will get the city where their place is
+		placeCity = data['query']['results']['place'][0]['locality1']['content']
+		z = zcdb.find_zip(city=placeCity)
 		for code in z:
 			#use jambase to get all the events, code.zip is the zipcode as a string
 			events += jambase.eventsHelp(code.zip, None)
