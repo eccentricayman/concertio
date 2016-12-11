@@ -1,5 +1,5 @@
 # schweak
-Ticketmaster + Spotify = 🎵
+JamBase + Musixmatch = 🎵
 
 # Instructions
 Put the pre-commit file in .git/hooks
