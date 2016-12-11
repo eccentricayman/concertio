@@ -18,7 +18,7 @@ def search(input):
 		rawData = urllib2.urlopen("http://query.yahooapis.com/v1/public/yql?q=select%20%2a%20from%20geo.places%20where%20text='" + parsedInput + "'&format=json").read()
 		data = json.loads(rawData)
 		if (data['query']['results'] == None):
-			return render_template("home.html", message="Location not found. Please try a zip code or a city.")
+			return render_template("home.html", message="Location not found. Please try a zip code or a city.", error=True)
 		#yahoo location will get the city where their place is
 		placeCity = data['query']['results']['place'][0]['locality1']['content']
 		z = zcdb.find_zip(city=placeCity)
