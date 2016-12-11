@@ -14,7 +14,7 @@ def getImage(query):
 	params = urllib.urlencode({
 	    # Request parameters
 	    'q': query,
-	    'count': '1',
+	    'count': '50',
 	    'offset': '0',
 	    'mkt': 'en-us',
 	    'safeSearch': 'Moderate',
@@ -27,6 +27,9 @@ def getImage(query):
 	    data = response.read()
 	    conn.close()
 	    parsedData = json.loads(data)
-	    return (parsedData['value'][0]['contentUrl'])
+	    images = parsedData['value']
+	    for image in images:
+	    	if (image['height'] == image['width']):
+	    		return image['contentUrl']
 	except Exception as e:
 	    return None
