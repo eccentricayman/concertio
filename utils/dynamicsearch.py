@@ -9,7 +9,7 @@ def search(input):
 		z = int(input)
 		if (len(input) == 5):
 			#use jambase.py to get the events in this zipcode in a list
-			#event list should look like[ [eventname1, eventartist1, eventlocation1], [eventname2, eventartist2, eventlocation2] ]
+			#event list should look like[ [eventname1, eventid1, eventlocation1], ...]
 			events = jambase.eventsHelp(input, None)
 	except ValueError:
 		zcdb = ZipCodeDatabase()
@@ -17,18 +17,20 @@ def search(input):
 		parsedInput = input.replace(" ", "+")
 		rawData = urllib2.urlopen("http://query.yahooapis.com/v1/public/yql?q=select%20%2a%20from%20geo.places%20where%20text='" + parsedInput + "'&format=json").read()
 		data = json.loads(rawData)
+		#check if any places with this name exist
 		if (data['query']['results'] == None):
-			return render_template("home.html", message="Location not found. Please try a zip code or a city.", error=True)
+			#check if artist exists
+			if (jambase.artistExists(input) == False):
+				return render_template("home.html", message="Error: Not found. Please search an artist OR a location, not both.", error = True)
+			else:
+				artists = jambase.eventsHelp(None, input)
+				return render_template("results.html", eventList = None, artistList = artists)
 		#yahoo location will get the city where their place is
 		placeCity = data['query']['results']['place'][0]['locality1']['content']
 		z = zcdb.find_zip(city=placeCity)
 		for code in z:
 			#use jambase to get all the events, code.zip is the zipcode as a string
 			events += jambase.eventsHelp(code.zip, None)
-	#now artists
-	#same format as eventlist in line 8 of this file, but we're looking for all the events of this artist
-	artists = jambase.eventsHelp(None, input)
-	#returning the final rendertemplate
-	#either eventlist or artistlist can be Nonet
-	return render_template("results.html", eventList = events, artistList = artists)
+		#returning the final rendertemplate, either eventList or artistList can be null.
+		return render_template("results.html", eventList = events, artistList = None)
 
