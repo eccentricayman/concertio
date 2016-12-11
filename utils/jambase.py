@@ -2,7 +2,7 @@ import urllib2, json
 
 def key():
     #gets key
-    k = open("../keys.csv", "r").readline()
+    k = open("keys.csv", "r").readline()
     k = k.split(",")[1]
     return k
 
