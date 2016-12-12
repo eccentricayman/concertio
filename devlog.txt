@@ -28,3 +28,4 @@ aymanA - 2016-12-10 11:08:08 PM - Started using Yahoo Places API for search, rem
 aymanA - 2016-12-10 11:29:45 PM - Fixed errors in dynamicsearch
 angelaY - 2016-12-11 12:15:29 AM - minor commentation
 aymanA - 2016-12-11 12:44:14 AM - got jambase links working, need to fix eventHelp return and json parsing
+eliasM - 2016-12-12 12:32:51 PM - made progress on login.py
