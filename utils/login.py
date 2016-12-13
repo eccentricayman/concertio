@@ -21,7 +21,7 @@ def register(username, password):
         c.execute(query, (user, salt, password))
         db.commit()
         db.close()
-        return ""
+        return "You've succesfully registered!"
     db.commit()
     db.close()
     return reg#return error message
@@ -31,10 +31,10 @@ def login(username, password):
     c = db.cursor()
     query = ("SELECT * FROM users WHERE user=?")
     sel = c.execute(query,(user,));
-    
+
     #records with this username
     #so should be at most one record (in theory)
-     
+
     for record in sel:
         password = sha1(password+record[1]).hexdigest()##record[1] is the salt
         if (password==record[2]):

@@ -6,7 +6,7 @@ aymanA -- 2016-12-07 12:17:24 AM  - added the error variable to home
 aymanA -- 2016-12-07 11:58:21 AM  - Added the pre-commit devlog script
 aymanA - 2016-12-07 12:10:59 PM - fixed pre-commit
 eliasM - 2016-12-07 12:35:44 PM - added UML for jambase. Removed ticketmaster.py. Added API key as comment in jambase.py
-angelaY - 2016-12-07 12:33:01 PM - updated app.py with barebones of other functions 
+angelaY - 2016-12-07 12:33:01 PM - updated app.py with barebones of other functions
 eliasM - 2016-12-07 12:36:46 PM - devlog merge
 eliasM - 2016-12-07 10:01:20 PM - Started working on jambase. Still need to learn how to parse xml as jambase only uses xml
 aymanA - 2016-12-08 12:57:00 AM - deleted emacs backups
@@ -29,3 +29,5 @@ aymanA - 2016-12-10 11:29:45 PM - Fixed errors in dynamicsearch
 angelaY - 2016-12-11 12:15:29 AM - minor commentation
 aymanA - 2016-12-11 12:44:14 AM - got jambase links working, need to fix eventHelp return and json parsing
 eliasM - 2016-12-12 12:32:51 PM - made progress on login.py
+angelaY - 2016-12-12 12:33:05 PM - added login functions to app.py
+angelaY - 2016-12-13 12:45:15 AM - small changes to app.py and login.py for consistency

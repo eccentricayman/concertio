@@ -7,8 +7,9 @@ app.secret_key=os.urandom(32)
 
 @app.route("/")
 def home():
-    return render_template("home.html", loggedIn?=session['user'])
-##user is true if user is logged in
+    return render_template("home.html", loggedIn=session['user'])
+##logged in is a boolean user is true if user is logged in
+## used in html to check if register/login buttons should show up
 
 @app.route("/logauthen/")
 def log():
@@ -44,7 +45,7 @@ def results(resultDict):
 @app.route("/event/", methods=["POST"])
 def event():
     eventID = request.form['event'] ##value of form/link should be event id or event name or something
-    eventInfo = results(jambase.events(eventID)) ##waiting on jambase.py for specific formatting 
+    eventInfo = results(jambase.events(eventID)) ##waiting on jambase.py for specific formatting
     render_template("event.html",event = eventInfo)
 
 @app.route("/logout/")
