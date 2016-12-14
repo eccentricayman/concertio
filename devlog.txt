@@ -31,3 +31,4 @@ aymanA - 2016-12-11 12:44:14 AM - got jambase links working, need to fix eventHe
 eliasM - 2016-12-12 12:32:51 PM - made progress on login.py
 angelaY - 2016-12-12 12:33:05 PM - added login functions to app.py
 angelaY - 2016-12-13 12:45:15 AM - small changes to app.py and login.py for consistency
+eliasM - 2016-12-13  7:42:21 PM - Finished login.py functionality, did some tests and they worked. Further tests once it is attached to app.py would be a good idea
