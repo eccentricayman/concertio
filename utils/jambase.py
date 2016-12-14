@@ -18,6 +18,7 @@ def eventsHelp(z, artist, radius):
         artist = artist.replace(" ", "+")
         artist = artistId(artist)
         u += "&artistId=" + str(artist)
+    print u
     urlRequest = urllib2.Request(u, headers={'User-Agent' : "Magic Browser"})
     urlData = urllib2.urlopen(urlRequest)
     data = urlData.read()

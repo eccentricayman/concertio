@@ -26,7 +26,7 @@ def search(input):
 			else:
 				artists = jambase.eventsHelp(None, input, 0)
 				return render_template("results.html", eventList = None, artistList = artists)
-		elif (data['query']['results']['place']['country']['content'] != "United States"):
+		elif (data['query']['results']['place'][0]['country']['content'] != "United States"):
 			if (jambase.artistExists(input) == False):
 				return render_template("home.html", message="All locations must be within the United States.", error = False)
 			else:
@@ -34,7 +34,7 @@ def search(input):
 				return render_template("results.html", eventList = None, artistList = artists)
 		else:
 			#yahoo location will get the city where their place is
-			placeCity = data['query']['results']['place']['locality1']['content']
+			placeCity = data['query']['results']['place'][0]['locality1']['content']
 			z = zcdb.find_zip(city=placeCity)
 			#50 radius
 			events = jambase.eventsHelp(z[len(z) / 2].zip, None, 50)

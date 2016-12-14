@@ -1,17 +1,20 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, session
 from utils import jambase, musixmatch, dynamicsearch, login
 import os
 
 app = Flask(__name__)
-app.secret_key=os.urandom(32)
+app.secret_key = os.urandom(32)
 
 @app.route("/")
 def home():
-    return render_template("home.html", loggedIn=session['user'])
+    try:
+        return render_template("home.html", loggedIn = session['user'])
+    except KeyError:
+        return render_template("home.html", loggedIn = False)
 ##logged in is a boolean user is true if user is logged in
 ## used in html to check if register/login buttons should show up
 
-@app.route("/logauthen/")
+@app.route("/logauthen")
 def log():
     user=request.form["username"]
     password=request.form["password"]
@@ -27,7 +30,7 @@ def reg():
     authen=login.register(user, password)
     return render_template("home.html", message=authen)
 
-@app.route("/search/", methods=["POST"])
+@app.route("/search", methods=["POST"])
 def search():
     userInput = request.form["search"]
     if (userInput == ""):
@@ -36,19 +39,19 @@ def search():
     return dynamicsearch.search(userInput)
     #event list should look like[ [eventname1, eventartist1, eventlocation1], [eventname2, eventartist2, eventlocation2] ]
 
-@app.route("/results/")
+@app.route("/results")
 def results(resultDict):
     render_template("results.html", results = resultDict)
     ##sends dictionary to html, go thru each entry and format?
 
 ##click on some link on results page? searches using jambase for specific event info
-@app.route("/event/", methods=["POST"])
+@app.route("/event", methods=["POST"])
 def event():
     eventID = request.form['event'] ##value of form/link should be event id or event name or something
     eventInfo = results(jambase.events(eventID)) ##waiting on jambase.py for specific formatting
     render_template("event.html",event = eventInfo)
 
-@app.route("/logout/")
+@app.route("/logout")
 def logout():
     session['user']=False
     redirect(url_for("home"))
