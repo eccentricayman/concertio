@@ -1,5 +1,5 @@
 import urllib2, json
-from time import sleep
+import bing
 
 def key():
     #gets key
@@ -24,7 +24,7 @@ def eventsHelp(z, artist, radius):
     jsonData = json.loads(data)
     eventData = jsonData['Events']
     for event in eventData:
-        events += [event['Venue']['Name'], event['Venue']['Address'] + ", " + event['Venue']['City'] + ", " + event['Venue']['State'], event['Id']]
+        events += [event['Venue']['Name'], event['Venue']['Address'] + ", " + event['Venue']['City'] + ", " + event['Venue']['State'], event['Id'], bing.getImage(event['Venue']['Name'])]
     return events
 
 def artistId(artist):
