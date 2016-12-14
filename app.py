@@ -14,21 +14,25 @@ def home():
 ##logged in is a boolean user is true if user is logged in
 ## used in html to check if register/login buttons should show up
 
-@app.route("/logauthen")
+@app.route("/authenticate")
 def log():
     user=request.form["username"]
     password=request.form["password"]
-    authen=login.login(user, password)
-    if authen=="":
-        session['user']=True
-    return render_template("home.html", message=authen)
-
-@app.route("/regauthen/")
-def reg():
-    user=request.form["username"]
-    password=request.form["password"]
-    authen=login.register(user, password)
-    return render_template("home.html", message=authen)
+    whichButton = request.form["submitButton"]
+    if (whichButton == "Login"):
+        authen=login.login(user, password)
+        if authen=="":
+            session['user']=True
+            hasError = False
+        else:
+            hasError = True
+    if (whichButton == "Register"):
+        authen = login.register(user, password)
+        if authen == "":
+            hasError = False
+        else:
+            hasError = True
+    return render_template("home.html", message=authen, error = hasError)
 
 @app.route("/search", methods=["POST"])
 def search():
