@@ -2,4 +2,7 @@
 JamBase + Musixmatch = 🎵
 
 # Instructions
-Put the pre-commit file in .git/hooks
+Needs pyzipcode installed
+```
+$ pip install pyzipcode
+```
