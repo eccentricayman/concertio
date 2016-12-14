@@ -1,31 +1,37 @@
 import urllib2, json
+from time import sleep
 
 def key():
     #gets key
     k = open("keys.csv", "r").readline()
-    k = k.split(",")[1]
+    #use index 1 or 3 in next line if you get 403 Forbidden, TEST SPARINGLY ONLY 50 API CALLS / DAY
+    k = k.split(",")[3]
     return k
 
-def eventsHelp(z, artist):
+def eventsHelp(z, artist, radius):
+    events = []
     u = "http://api.jambase.com/events?api_key=" + key() + "&o=json"
     if z != None:
-        u += "&zipCode=" + z + "&radius=0" #radius zero so it is only in that zipCode
-        
+        z = z.replace(" ", "+")
+        u += "&zipCode=" + z + "&radius=" + str(radius) #radius zero so it is only in that zipCode
     if artist != None:
+        artist = artist.replace(" ", "+")
         artist = artistId(artist)
         u += "&artistId=" + str(artist)
+    urlRequest = urllib2.Request(u, headers={'User-Agent' : "Magic Browser"})
+    urlData = urllib2.urlopen(urlRequest)
+    data = urlData.read()
+    jsonData = json.loads(data)
+    eventData = jsonData['Events']
+    for event in eventData:
+        events += [event['Venue']['Name'], event['Venue']['Address'] + ", " + event['Venue']['City'] + ", " + event['Venue']['State'], event['Id']]
+    return events
 
-    print u
-    u = urllib2.urlopen(u)
-    urlData = u.read()
-    jsonData = json.loads(urlData)
-    #examplu (first from http://pastebin.com/bWRSCvqm)
-    return [ ["The Great Northern", 2873583, "119 Utah Street, San Francisco, California"], ["Halcyon", 160644, "314 11th Street, San Francisco, California"] ]
-    
 def artistId(artist):
     artist = artist.replace(" ", "+")
     url = "http://api.jambase.com/artists?name=" + artist + "&api_key=" + key() + "&o=json"
-    data = urllib2.urlopen(url)
+    urlRequest = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
+    data = urllib2.urlopen(urlRequest)
     urlData = data.read()
     jsonData = json.loads(urlData)
     artistID = jsonData['Artists'][0]["Id"]
@@ -35,7 +41,9 @@ def artistId(artist):
 def artistExists(artist):
     artist = artist.replace(" ", "+")
     url = "http://api.jambase.com/artists?name=" + artist + "&api_key=" + key() + "&o=json"
-    data = urllib2.urlopen(url)
+    print url
+    urlRequest = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
+    data = urllib2.urlopen(urlRequest)
     urlData = data.read()
     jsonData = json.loads(urlData)
     artists = jsonData['Artists']

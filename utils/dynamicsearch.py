@@ -1,5 +1,6 @@
 from pyzipcode import ZipCodeDatabase
 import jambase, musixmatch
+from flask import render_template
 import urllib2, json
 
 def search(input):
@@ -23,14 +24,19 @@ def search(input):
 			if (jambase.artistExists(input) == False):
 				return render_template("home.html", message="Error: Not found. Please search an artist OR a location, not both.", error = True)
 			else:
-				artists = jambase.eventsHelp(None, input)
+				artists = jambase.eventsHelp(None, input, 0)
 				return render_template("results.html", eventList = None, artistList = artists)
-		#yahoo location will get the city where their place is
-		placeCity = data['query']['results']['place'][0]['locality1']['content']
-		z = zcdb.find_zip(city=placeCity)
-		for code in z:
-			#use jambase to get all the events, code.zip is the zipcode as a string
-			events += jambase.eventsHelp(code.zip, None)
-		#returning the final rendertemplate, either eventList or artistList can be null.
-		return render_template("results.html", eventList = events, artistList = None)
-
+		elif (data['query']['results']['place']['country']['content'] != "United States"):
+			if (jambase.artistExists(input) == False):
+				return render_template("home.html", message="All locations must be within the United States.", error = False)
+			else:
+				artists = jambase.eventsHelp(None, input, 0)
+				return render_template("results.html", eventList = None, artistList = artists)
+		else:
+			#yahoo location will get the city where their place is
+			placeCity = data['query']['results']['place']['locality1']['content']
+			z = zcdb.find_zip(city=placeCity)
+			#50 radius
+			events = jambase.eventsHelp(z[len(z) / 2].zip, None, 50)
+			#returning the final rendertemplate, either eventList or artistList can be null.
+			return render_template("results.html", eventList = events, artistList = None)
