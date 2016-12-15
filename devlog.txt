@@ -35,3 +35,5 @@ eliasM - 2016-12-13  7:42:21 PM - Finished login.py functionality, did some test
 aymanA - 2016-12-13 09:23:05 PM - Jambase works, and so does dynamicsearch
 aymanA - 2016-12-13 09:25:28 PM - Forgot image link in dynamicsearch, added that now
 aymanA - 2016-12-13 09:57:46 PM - added error message for too many api calls
+
+eliasM - 2016-12-15 12:58:06 AM - added changes.txt for changes from the original design document

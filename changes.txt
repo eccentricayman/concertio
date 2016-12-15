@@ -1,0 +1,9 @@
+The major changes had to do with the APIs we ended up using:
+    Both our original planned API had issues.
+    So, they were both replaced with similiar functioning APIs.
+    Spotify with MusixMatch and TicketMaster with Jambase.
+    We also added bing image api and yahoo geoplanet api to replace lost functionality.
+
+Another difference was the timeline:
+    Because of the issues with apis in the beginning we werent able to keep to the schedule early on
+    However because of the extra time alotted we managed to pace ourselves decently
