@@ -2,6 +2,7 @@ import urllib2
 import json
 
 def toptracks(artist):#takes artist name as string
+    artist = artist.replace(" ", "+")
     u = "http://api.musixmatch.com/ws/1.1/track.search?q_artist=" + artist + "&s_track_rating=desc&apikey=" + key()
     u = urllib2.urlopen(u)
     u = u.read()
@@ -19,8 +20,7 @@ def toptracks(artist):#takes artist name as string
 
 ##HELPERS##
 def key():
-    #gets key
-    
+    #gets key 
     k = open("keys.csv", "r").readline()
     k = k.split(",")[0]
     return k

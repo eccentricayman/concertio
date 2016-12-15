@@ -1,28 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>Event: {{ name }}</title>
-    
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css">
-    <!-- Foundation -->
-    <link rel="stylesheet" href="static/foundation/css/foundation.css">
-    <!-- My Style -->
-    <link rel="stylesheet" href="static/style.css" type="text/css" media="screen">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  </head>
-  <body>
-    <!-- Foundation Scripts -->
-    <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/vendor/what-input.min.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-  </body>
+		<title>Event: {{ event[0] }}</title>
+
+		<!-- Google Fonts -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+		<link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css">
+		<!-- Foundation -->
+		<link rel="stylesheet" href="static/foundation/css/foundation.css">
+		<!-- My Style -->
+		<link rel="stylesheet" href="static/style.css" type="text/css" media="screen">
+	</head>
+	<body>
+
+		<div class="concertio-container" style="width: 90% ; text-align: center">
+			<h1 class="concertio-h1"> {{ event[0] }}</h1>
+			
+			<div style="margin: 0 auto ; width: 50% ; padding-bottom: 2.5%"><hr></div>
+
+			<img class="concertio-image-no-circle" src="{{ event[3] }}" alt="Photo of location." />
+		</div>
+		<br><br>
+		<div class="concertio-container" style="width: 90% ; text-align: center">
+			<h1 class="concertio-h1">Information</h1>
+			<div style="margin: 0 auto ; width: 50% ; padding-bottom: 2.5%"><hr></div>
+
+			<h2 class="concertio-h2">The event is located at</h2>
+			<h2 class="concertio-h2 concertio-highlight">{{ event[1] }}.</h2>
+			<br><br>
+			<h2 class="concertio-h2">The event will take place on</h2>
+			<h2 class="concertio-h2 concertio-highlight"> {{ event[2][5:7] + "/" + event[2][8:10] + "/" + event[2][0:4] }}.</h2>
+			<br><br>
+			<a href="{{ event[4] }}" class="button round large success concertio-button concertio-link" style="padding: 2% 5% 2% 5%">Click Here to Purchase Tickets</a>
+		</div>
+		<br><br>
+		{# <div class="concertio-container">
+			<h1 class="concertio-h1">Artists</h1>
+			<div style="margin: 0 auto ; width: 50% ; padding-bottom: 2.5%"><hr></div>
+			{% for artistData in event[5] %}
+			<table>
+				<tr>
+					<td>
+						<img class="concertio-image-no-circle" src="{{ artistData[1] }}" alt="Photo of artist." />
+					</td>
+					<td>
+						<h2 class="concertio-h2"> {{ artistData[0] }}</h2>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+				</tr>
+			</table>
+			{% endfor %}
+		</div> #}
+		<!-- Foundation Scripts -->
+		<script src="js/vendor/jquery.min.js"></script>
+		<script src="js/vendor/what-input.min.js"></script>
+		<script src="js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>

@@ -1,5 +1,5 @@
 import urllib2, json
-import bing
+import bing, musixmatch
 
 def key():
     #gets key
@@ -25,8 +25,15 @@ def eventsHelp(z, artist, radius):
     jsonData = json.loads(data)
     eventData = jsonData['Events']
     for event in eventData:
-        events += [event['Venue']['Name'], event['Venue']['Address'] + ", " + event['Venue']['City'] + ", " + event['Venue']['State'], event['Id'], bing.getImage(event['Venue']['Name'])]
+        if (not eventExists(events, event['Venue']['Name'])):
+            events.append([event['Venue']['Name'], event['Venue']['Address'] + ", " + event['Venue']['City'] + ", " + event['Venue']['State'], event['Id'], bing.getImage(event['Venue']['Name'])])
     return events
+
+def eventExists(eventList, name):
+    for event in eventList:
+        if (event[0] == name):
+            return True
+    return False
 
 def artistId(artist):
     artist = artist.replace(" ", "+")
@@ -42,7 +49,6 @@ def artistId(artist):
 def artistExists(artist):
     artist = artist.replace(" ", "+")
     url = "http://api.jambase.com/artists?name=" + artist + "&api_key=" + key() + "&o=json"
-    print url
     urlRequest = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
     data = urllib2.urlopen(urlRequest)
     urlData = data.read()
@@ -50,17 +56,20 @@ def artistExists(artist):
     artists = jsonData['Artists']
     return bool(artists);
 
-def events(search):
-    return ""
+def eventData(event):
+    url = "http://api.jambase.com/events?id=" + str(event) + "&api_key=" + key() + "&o=json"
+    urlRequest = urllib2.Request(url, headers={'User-Agent' : "Magic Browser"})
+    data = urllib2.urlopen(urlRequest)
+    urlData = data.read()
+    eventData = json.loads(urlData)
+    print eventData
+    eventDataList = [eventData['Venue']['Name'], eventData['Venue']['Address'] + ", " + eventData['Venue']['City'] + ", " + eventData['Venue']['State'], eventData['Date'], bing.getNonSquareImage(eventData['Venue']['Name']), eventData['TicketUrl']]
+    artistDataList = []
+    for artist in eventData['Artists']:
+        artistDataList.append([artist['Name'], bing.getNonSquareImage(artist['Name']), musixmatch.toptracks(artist['Name'])])
+    eventDataList.append(artistDataList)
+    print "\n\n\n"
+    print eventDataList[5]
+    print "\n\n\n"
+    return eventDataList
 
-def link(event):
-    return ""
-
-def loc(event):
-    return ""
-
-def artists(event):
-    return ""
-
-def images(event):
-    return ""

@@ -40,20 +40,20 @@ def search():
     if (userInput == ""):
         return render_template("home.html", message="Please search for something!")
     #dynamicsearch is a dictionary of both locations and artist with that name
-    return dynamicsearch.search(userInput)
-    #event list should look like[ [eventname1, eventartist1, eventlocation1], [eventname2, eventartist2, eventlocation2] ]
-
-@app.route("/results")
-def results(resultDict):
-    render_template("results.html", results = resultDict)
-    ##sends dictionary to html, go thru each entry and format?
+    searchInfo = dynamicsearch.search(userInput)
+    if (len(searchInfo) == 2):
+        return render_template("home.html", message = searchInfo[0], error =searchInfo[1])
+    elif (len(searchInfo) == 3):
+        return render_template("results.html", eventsList = searchInfo[0], artistList = searchInfo[1], userQuery = searchInfo[2])
+    else:
+        return render_template("home.html", message = "Unknown error. Please try again.", error = True)
 
 ##click on some link on results page? searches using jambase for specific event info
-@app.route("/event", methods=["POST"])
+@app.route("/event", methods=["GET", "POST"])
 def event():
-    eventID = request.form['event'] ##value of form/link should be event id or event name or something
-    eventInfo = results(jambase.events(eventID)) ##waiting on jambase.py for specific formatting
-    render_template("event.html",event = eventInfo)
+    eventID = request.args['eventID'] ##value of form/link should be event id or event name or something
+    eventInfo = jambase.eventData(eventID) ##waiting on jambase.py for specific formatting
+    return render_template("event.html",event = eventInfo)
 
 @app.route("/logout")
 def logout():

@@ -29,6 +29,24 @@ body {
     color: #FFF;
 }
 
+.concertio-h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+}
+
+.concertio-h2 {
+    font-family: "Montserrat", sans-serif;
+    color: rgb(160, 160, 160);
+    text-align: center;
+    font-size: 30px;
+}
+
+.concertio-highlight {
+    color: rgb(47, 213, 102);
+}
+
 .concertio-button {
     text-align: center;
     font-family: "Montserrat", sans-serif;
@@ -58,6 +76,44 @@ body {
     text-transform: capitalize;
 }
 
+.concertio-container {
+    margin: 0 auto;
+    width: 80%;
+    padding: 2.5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgb(50, 50, 50);
+}
+
+.concertio-image {
+    border-radius: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+.concertio-image-no-circle {
+    border-radius: 5%;
+    height: auto;
+    padding: 0px;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.concertio-description {
+    font-family: "Montserrat";
+    color: rgb(160, 160, 160);
+    padding-left: 5%;
+}
+
+.concertio-link {
+    font-family: "Montserrat";
+    color: #FFF;
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .concertio-error {
     color: #BD3200;
 }
@@ -67,6 +123,7 @@ body {
     position: absolute;
     bottom: 0;
     right: 0;
+    background-color: rgb(30, 30, 30);
 }
 
 /* Here be where I overwrite default foundation things. */
