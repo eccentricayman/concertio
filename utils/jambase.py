@@ -26,7 +26,8 @@ def eventsHelp(z, artist, radius):
     eventData = jsonData['Events']
     for event in eventData:
         if (not eventExists(events, event['Venue']['Name'])):
-            events.append([event['Venue']['Name'], event['Venue']['Address'] + ", " + event['Venue']['City'] + ", " + event['Venue']['State'], event['Id'], bing.getImage(event['Venue']['Name'])])
+            if (event['Venue']['Country'] == "US"):
+                events.append([event['Venue']['Name'], event['Venue']['Address'] + ", " + event['Venue']['City'] + ", " + event['Venue']['State'], event['Id'], bing.getImage(event['Venue']['Name'])])
     return events
 
 def eventExists(eventList, name):
