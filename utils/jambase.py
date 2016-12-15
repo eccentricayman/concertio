@@ -5,7 +5,7 @@ def key():
     #gets key
     k = open("keys.csv", "r").readline()
     #use index 1 or 3 in next line if you get 403 Forbidden, TEST SPARINGLY ONLY 50 API CALLS / DAY
-    k = k.split(",")[3]
+    k = k.split(",")[6]
     return k
 
 def eventsHelp(z, artist, radius):
@@ -66,7 +66,7 @@ def eventData(event):
     eventDataList = [eventData['Venue']['Name'], eventData['Venue']['Address'] + ", " + eventData['Venue']['City'] + ", " + eventData['Venue']['State'], eventData['Date'], bing.getNonSquareImage(eventData['Venue']['Name']), eventData['TicketUrl']]
     artistDataList = []
     for artist in eventData['Artists']:
-        artistDataList.append([artist['Name'], bing.getNonSquareImage(artist['Name']), musixmatch.toptracks(artist['Name'])])
+        artistDataList.append([artist['Name'], bing.getImage(artist['Name']), musixmatch.toptracks(artist['Name'])])
     eventDataList.append(artistDataList)
     print "\n\n\n"
     print eventDataList[5]

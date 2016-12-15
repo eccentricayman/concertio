@@ -23,10 +23,11 @@
 			<div style="margin: 0 auto ; width: 50% ; padding-bottom: 2.5%"><hr></div>
 
 			<img class="concertio-image-no-circle" src="{{ event[3] }}" alt="Photo of location." />
+			<br><br>
 		</div>
 		<br><br>
 		<div class="concertio-container" style="width: 90% ; text-align: center">
-			<h1 class="concertio-h1">Information</h1>
+			<h1 class="concertio-h1">Event Information</h1>
 			<div style="margin: 0 auto ; width: 50% ; padding-bottom: 2.5%"><hr></div>
 
 			<h2 class="concertio-h2">The event is located at</h2>
@@ -36,28 +37,50 @@
 			<h2 class="concertio-h2 concertio-highlight"> {{ event[2][5:7] + "/" + event[2][8:10] + "/" + event[2][0:4] }}.</h2>
 			<br><br>
 			<a href="{{ event[4] }}" class="button round large success concertio-button concertio-link" style="padding: 2% 5% 2% 5%">Click Here to Purchase Tickets</a>
+			<br><br>
 		</div>
 		<br><br>
-		{# <div class="concertio-container">
-			<h1 class="concertio-h1">Artists</h1>
+		<div class="concertio-container" style="width: 90%">
+			<h1 class="concertio-h1">Artists Performing</h1>
 			<div style="margin: 0 auto ; width: 50% ; padding-bottom: 2.5%"><hr></div>
 			{% for artistData in event[5] %}
-			<table>
-				<tr>
-					<td>
-						<img class="concertio-image-no-circle" src="{{ artistData[1] }}" alt="Photo of artist." />
-					</td>
-					<td>
-						<h2 class="concertio-h2"> {{ artistData[0] }}</h2>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					</td>
-				</tr>
-			</table>
+			<div>
+				<div class="row" style="padding-left: 21%">
+					<div class="large-4 columns">
+						<img class="concertio-image" src="{{ artistData[1] }}" alt="Photo of {{ artistData[0] }}." />
+					</div>
+					<div class="large-8 columns">
+						<h2 class="concertio-h1" style="text-align: left ; padding-top: 17.5%"> {{ artistData[0] }}</h2>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="large-12 columns" style="color: #FFF">
+						<div class="row" style="border-bottom: 1px solid rgb(75, 75, 75)">
+							<div class="small-6 columns concertio-columns">
+								<p style="text-align: center ; color: rgb(47, 213, 102)">POPULAR SONGS</p>
+							</div>
+							<div class="small-6 columns concertio-columns">
+								<p style="text-align: center ; color: rgb(47, 213, 102)">ALBUM</p>
+							</div>
+						</div>
+						{% for song in artistData[2] %}
+						<div class="row" style="border-bottom: 1px solid rgb(75, 75, 75) ; padding-top: 1.75%">
+							<div class="small-6 columns concertio-columns">
+								<p style="text-align: center ; color: #FFF"> {{ song["track_name"] }} </p>
+							</div>
+							<div class="small-6 columns concertio-columns">
+								<p style="text-align: center ; color: #FFF"> {{ song["album_name"] }} </p>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<br><br><br>
 			{% endfor %}
-		</div> #}
+		</div>
+		<br><br>
 		<!-- Foundation Scripts -->
 		<script src="js/vendor/jquery.min.js"></script>
 		<script src="js/vendor/what-input.min.js"></script>
