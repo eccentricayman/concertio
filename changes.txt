@@ -1,9 +1,9 @@
 The major changes had to do with the APIs we ended up using:
-    Both our original planned API had issues.
-    So, they were both replaced with similiar functioning APIs.
+    Both our original planned API had issues. The specific functions we wanted to use in Spotify required oAuth and we also realized that TicketMaster was not the best API to use for our design since it is not tailored soley for concerts. The methods in TicketMaster were also convoluted for our intended use. 
+    So, they were both replaced with similiar functioning APIs that were better suited for our use. 
     Spotify with MusixMatch and TicketMaster with Jambase.
-    We also added bing image api and yahoo geoplanet api to replace lost functionality.
+    We also added bing image API and yahoo geoplanet API to replace lost functionality. Bing image API provides a picture of an artist while the yahoo geoplanet API provides a picture of a location.
 
 Another difference was the timeline:
-    Because of the issues with apis in the beginning we werent able to keep to the schedule early on
-    However because of the extra time alotted we managed to pace ourselves decently
+    Because of the issues with apis in the beginning we couldn't keep to the schedule and had to shift things around. 
+    However because of the extra time alotted we still managed to complete the project.
