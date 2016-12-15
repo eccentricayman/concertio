@@ -16,12 +16,13 @@ def search():
         return render_template("home.html", message="Please search for something!")
     #dynamicsearch is a dictionary of both locations and artist with that name
     searchInfo = dynamicsearch.search(userInput)
-    if (len(searchInfo) == 2):
-        return render_template("home.html", message = searchInfo[0], error =searchInfo[1])
-    elif (len(searchInfo) == 3):
-        return render_template("results.html", eventsList = searchInfo[0], artistList = searchInfo[1], userQuery = searchInfo[2])
-    else:
-        return render_template("home.html", message = "Unknown error. Please try again.", error = True)
+    try:
+        if (len(searchInfo) == 2):
+            return render_template("home.html", message = searchInfo[0], error =searchInfo[1])
+        elif (len(searchInfo) == 3):
+            return render_template("results.html", eventsList = searchInfo[0], artistList = searchInfo[1], userQuery = searchInfo[2])
+    except TypeError:
+        return render_template("home.html", message = "We're out of API keys. Sorry for being so cheap.", error = True)
 
 ##click on some link on results page? searches using jambase for specific event info
 @app.route("/event", methods=["GET", "POST"])
